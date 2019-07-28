@@ -1,12 +1,12 @@
 #pragma once
-class CGameObject
+class CGameObj
 {
 protected:
 	ObjectInfo m_tObjInfo;
 
 public:
-	CGameObject();
-	virtual ~CGameObject();
+	CGameObj();
+	virtual ~CGameObj();
 
 public:
 	virtual void Initialize() = 0;
@@ -15,6 +15,19 @@ public:
 
 private:
 	virtual void Release() = 0;
+
+public:
+	//get
+	ObjectInfo GetObjInfo() const;
+	
+	//set
+	void SetPosX(float x);
+	void SetPosY(float y);
+	void SetTheta(float theta);
+	void SetWidth(float width);
+	void SetHeight(float height);
+	void SetRect(RECT rect);
+	void SetIsDead(bool isdead);
 
 protected:
 	void UpdateRect();

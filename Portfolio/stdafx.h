@@ -30,3 +30,4 @@
 
 
 // Manager
+#include "CAbstractFactory.h"

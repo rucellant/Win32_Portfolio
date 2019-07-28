@@ -20,6 +20,24 @@
     <Filter Include="01. GameObject">
       <UniqueIdentifier>{640bde3e-f860-43e0-9409-5515641e303f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. GameObject\01. Player">
+      <UniqueIdentifier>{29500fe0-e853-4d09-8c7e-f91822e873bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Mgr">
+      <UniqueIdentifier>{caa5fb42-819d-44e1-b14b-8326b3e69ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Mgr\01. AbstractFactory">
+      <UniqueIdentifier>{f4fd87d1-3c77-4bb9-87ce-696a2e69e4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Mgr\02. CollisionMgr">
+      <UniqueIdentifier>{aae14dbb-67ba-4029-b014-4b7598957658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Mgr\03. ObjMgr">
+      <UniqueIdentifier>{666028a7-3a85-4796-83bf-5189f1318a59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Mgr\04. KeyMgr">
+      <UniqueIdentifier>{5aaf8089-ed8d-4b8f-8c31-75826c26af45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -49,6 +67,15 @@
     <ClInclude Include="GameObj.h">
       <Filter>01. GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="enum.h">
+      <Filter>99. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01. GameObject\01. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CAbstractFactory.h">
+      <Filter>02. Mgr\01. AbstractFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -62,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="GameObj.cpp">
       <Filter>01. GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01. GameObject\01. Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
