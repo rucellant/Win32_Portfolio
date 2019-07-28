@@ -25,6 +25,8 @@
 
 // User header
 #include "define.h"
+#include "extern.h"
+#include "Struct.h"
 
 
 // Manager

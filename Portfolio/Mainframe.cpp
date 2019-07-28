@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "Mainframe.h"
+#include "Maingame.h"
 
 #define MAX_LOADSTRING 100
 
@@ -14,6 +15,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 // 전역 변수
 HWND g_hWnd;
 RECT g_Rect;
+WCHAR szGameTitle[MAX_LOADSTRING];
 
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -32,8 +34,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDS_APP_TITLE, szTitle/*L"Win32Api Portfolio"*/, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_PORTFOLIO, szWindowClass, MAX_LOADSTRING);
+	wsprintf(szGameTitle, L"Win32Api Protfolio");
     MyRegisterClass(hInstance);
 
     // 응용 프로그램 초기화를 수행합니다.
@@ -43,12 +46,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     MSG msg;
-	msg.message = WM_QUIT;
+	msg.message = WM_NULL;
 
 	DWORD dwOldTime = GetTickCount();
 	DWORD dwCurTime = 0;
 
 	//TO DO: mainGame 객체 생성
+	CMaingame mainGame;
+	mainGame.Initialize();
 
     // 기본 메시지 루프입니다.
 	while (msg.message != WM_QUIT)
@@ -64,6 +69,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		if (dwCurTime - dwOldTime >= 10)
 		{
 			//TO DO: Update 및 Render
+			mainGame.Update();
+			mainGame.Render();
 
 			dwOldTime = dwCurTime;
 		}
@@ -117,7 +124,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    RECT rect = { 0,0,CLIENTCX,CLIENTCY };
    AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   HWND hWnd = CreateWindowW(szWindowClass, szGameTitle, WS_OVERLAPPEDWINDOW,
 	   0, 0, rect.right - rect.left, rect.bottom - rect.top, nullptr, nullptr, hInstance, nullptr);
 
    g_hWnd = hWnd;
